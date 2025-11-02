@@ -47,12 +47,22 @@ user1,password1;user2,password2;user3,password3
 
 * 可根据需要增加任意数量账号。
 
-3. **修改登录脚本（可选）**
+3. TG推送通知（可选）
+
+   * 在仓库 `Settings` → `Secrets and variables` → `Actions` → `New repository secret` 中添加
+
+`Name` 填入 `TELEGRAM_BOT_TOKEN` ：TG BOT 的 TOKEN
+
+`Secret` 填入 `TELEGRAM_CHAT_ID` ：接受信息的ID
+
+* 获取方式不用交了吧，不会搜一下就行
+
+5. **修改登录脚本（可选）**
 
    * 默认脚本已支持从 `SITE_ACCOUNTS` 环境变量读取账号信息，无需修改。
    * 若需要，本地测试可直接修改 `login.py` 文件的 `accounts` 列表。
 
-4. **安装依赖（本地运行）**
+6. **安装依赖（本地运行）**
 
 ```bash
 pip install --upgrade pip
@@ -60,7 +70,7 @@ pip install playwright
 python -m playwright install chromium
 ```
 
-5. **本地运行**
+6. **本地运行**
 
 ```bash
 # Linux/macOS
@@ -76,7 +86,7 @@ python login.py
 * 登录成功后停留 5 秒
 * 终端打印每个账号登录结果 ✅ 或 ❌
 
-6. **GitHub Actions 自动运行**
+7. **GitHub Actions 自动运行**
 
 * `.github/workflows/keepalive.yml` 已包含 workflow 配置
 * 默认自动执行：每月 1 号和 31 号
